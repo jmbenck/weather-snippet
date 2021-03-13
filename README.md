@@ -98,7 +98,7 @@ print(weather)
 # Clear with periodic clouds
 ````
 The ``find`` method from beautiful soup will search for the first element ``div`` element with the class name ``BNeawe tAd8D AP7Wnd``.
->Note that we also get a local time of the city in this div, witch is pretty nice tho.
+>Note that we also get the local time and day of week of the city in this div, witch is pretty nice tho.
 
 ## Run the sample code
 The ``main.py`` is a demonstration where you run and give and input with a City name to get the results.
