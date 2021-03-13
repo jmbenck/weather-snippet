@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 def getWeather(city):
     search = city
-    url = f'https://google.com/search?&q=Weather in {search}'
+    url = f'https://google.com/search?&q=Weather {search}'
 
     r = requests.get(url)
 
@@ -20,5 +20,6 @@ def getWeather(city):
     print(weather)
 
 
+print('Type a City name:')
 city = str(input())
 getWeather(city)
