@@ -18,14 +18,14 @@ pip install -r requirements.txt
 ````
 
 ## Code Step-by-Step
-###Import the modules
+### Import the modules
 
 ````Python3
 import requests
 from bs4 import BeautifulSoup
 ````
 
-###Building the url search
+### Building the url search
 We can make a Google search with ``GET`` method passing the query in the url:
 
 ````Python3
@@ -34,21 +34,21 @@ url = 'https://google.com/search?&q={}'.format(search)
 ````
 The ``search`` variable represents the query we want for getting an specific city weather.
 
-###Making request
+### Making request
 ````Python3
 r = requests.get(url)
 ````
 The ``request.get`` method will make a ``GET`` request for the given URL and store the response in the ``r`` variable.
 
 
-###Reading in BeautifulSoup
+### Reading in BeautifulSoup
 ````Python3
 s = BeautifulSoup(r.text, 'html.parser')
 ````
 We create an BeautifulSoup object with the response. The ``html.parse`` will structure the response as HTML document, so we could make searches.
 
 
-###Getting Data
+### Getting Data
 Now in the variable ``s`` we have structured html page that we could search in.
 
 Analysing a page with a given search We can see where is the code for the infomation we want.
@@ -70,7 +70,7 @@ Example of a page with weather information from Foz do Iguaçu (city from Brazil
 
 You can see the HTML code with the browser inspector, just remember to **disable Javascript** since BeautifulSoup don't process the js files.
 
-###Getting Location
+### Getting Location
 ````Python3
 location = s.find('span', class_='BNeawe').text
 print(location)
@@ -79,7 +79,7 @@ print(location)
 ````
 The ``find`` method from beautiful soup will search the ``span`` element with the class name ``BNeawe``.
 
-###Getting Temperature info
+### Getting Temperature info
 ````Python3
 temperature = s.find('div', class_='BNeawe').text
 print(temperature)
@@ -89,7 +89,7 @@ print(temperature)
 ````
 The ``find`` method from beautiful soup will search for the first element ``div`` element with the class name ``BNeawe``.
 
-###Getting Weather conditions
+### Getting Weather conditions
 ````Python3
 weather = s.find('div', class_='BNeawe tAd8D AP7Wnd').text
 print(weather)
@@ -100,10 +100,5 @@ print(weather)
 The ``find`` method from beautiful soup will search for the first element ``div`` element with the class name ``BNeawe tAd8D AP7Wnd``.
 >Note that we also get a local time of the city in this div, witch is pretty nice tho.
 
-
-
-
-
-
-## Contribute
+### Contribute
 That's all. Feel free for collaborating with this repo. Thank you.
