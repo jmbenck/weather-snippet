@@ -100,5 +100,5 @@ print(weather)
 The ``find`` method from beautiful soup will search for the first element ``div`` element with the class name ``BNeawe tAd8D AP7Wnd``.
 >Note that we also get a local time of the city in this div, witch is pretty nice tho.
 
-### Contribute
+## Contribute
 That's all. Feel free for collaborating with this repo. Thank you.
