@@ -101,7 +101,7 @@ The ``find`` method from beautiful soup will search for the first element ``div`
 >Note that we also get the local time and day of week of the city in this div, witch is pretty nice tho.
 
 ## Run the sample code
-The ``main.py`` is a demonstration where you run and give and input with a City name to get the results.
+The ``main.py`` is a demonstration code where you give input with a City name to get the results.
 
 ````Python3 
 pip install -r requirements.txt
