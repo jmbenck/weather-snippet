@@ -1,8 +1,7 @@
 # Weather extraction snippet
+This is an example of how we can use Python and [Web Scraping](https://bit.ly/3qOY5Pa) to get specific information making a search from in a webpage.
 
-This is an example of how we can use Python and Web Scraping to get information making search from a webpage.
-
-We will make a search on Google for the weather of a given City and use BeautifulSoup to extract that data.
+We will make a search on Google for the weather of a given City and use [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) to extract that data.
 
 We know there are better ways for getting weather information (like API's). But I think this is a nice snippet for demonstration purposes.
 ## Dependencies
@@ -11,7 +10,7 @@ We'll use Requests and BeautifulSoup modules.
 pip install requests
 pip install beautifulsoup4
 ````
-or you could just install all dependencies from ``requirements.txt``
+or you could just install all dependencies from ``requirements.txt``.
 
 ````Python3
 pip install -r requirements.txt
@@ -26,32 +25,39 @@ from bs4 import BeautifulSoup
 ````
 
 ### Building the url search
-We can make a Google search with ``GET`` method passing the query in the url:
+We can make a Google search using the HTTP ``GET`` method passing the query parameter in the url.
 
 ````Python3
-search = 'Weather in Foz do Iguaçu'
-url = 'https://google.com/search?&q={}'.format(search)
+search = 'Foz do Iguaçu'
+url = 'https://google.com/search?&q=weather {}'.format(search)
+
+# url = 'https://google.com/search?&q=weather Foz do Iguaçu'
 ````
-The ``search`` variable represents the query we want for getting an specific city weather.
+The ``search`` variable represents the query parameter that we want for getting a specific city weather.
 
 ### Making request
 ````Python3
 r = requests.get(url)
 ````
-The ``request.get`` method will make a ``GET`` request for the given URL and store the response in the ``r`` variable.
+The ``request.get`` method will make a ``GET`` request to the given URL and store the response in the ``r`` variable.
+
+So, the ``response`` will be the raw ``HTML`` content resulting from the url search.
 
 
 ### Reading in BeautifulSoup
 ````Python3
 s = BeautifulSoup(r.text, 'html.parser')
 ````
-We create an BeautifulSoup object with the response. The ``html.parse`` will structure the response as HTML document, so we could make searches.
+We create an BeautifulSoup object with the ``r`` variable. 
+
+The ``html.parse`` will structure the response as ``HTML`` document. Then, we can navigate thought the elements using [DOM (Document Object Model)](https://www.w3schools.com/whatis/whatis_htmldom.asp).
 
 
 ### Getting Data
-Now in the variable ``s`` we have structured html page that we could search in.
+Now in the variable ``s`` we have structured html page that we can search in using DOM.
 
-Analysing a page with a given search We can see where is the code for the infomation we want.
+Let's take a look at the ``HTML`` result from this url ``https://google.com/search?&q=weather-Foz-do-Iguaçu ``
+
 ````html
 ...
 <!-- Location -->
@@ -66,10 +72,10 @@ Analysing a page with a given search We can see where is the code for the infoma
 </div>
 ...
 ````
-Example of a page with weather information from Foz do Iguaçu (city from Brazil).
 
-You can see the HTML code with the browser inspector, just remember to **disable Javascript** since BeautifulSoup don't process the js files.
+>Note: You can see the ``HTML`` code with the ``browser inspector``. Just remember to **disable Javascript** since BeautifulSoup **don't** process the js files, and it can change some attributes in the page.
 
+Analysing the page is possible to locate where is the information we want to extract. Then, We have will use the ``elements``, and the ``classes names`` to make our search.
 ### Getting Location
 ````Python3
 location = s.find('span', class_='BNeawe').text
