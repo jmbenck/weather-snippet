@@ -1,7 +1,7 @@
 # Weather extraction snippet
 [![Build Status](https://travis-ci.com/jmbenck/weather-snippet.svg?branch=master)](https://travis-ci.com/jmbenck/weather-snippet)
 
-This is an example of how we can use Python and [Web Scraping](https://bit.ly/3qOY5Pa) to get specific information making a search from in a webpage.
+This is an example of how we can use Python and [Web Scraping](https://bit.ly/3qOY5Pa) to get specific information making a search from a webpage.
 
 We will make a search on Google for the weather of a given City and use [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) to extract that data.
 
@@ -30,10 +30,10 @@ from bs4 import BeautifulSoup
 We can make a Google search using the HTTP ``GET`` method passing the query parameter in the url.
 
 ````Python3
-search = 'Foz do Iguaçu'
+search = 'Foz-do-Iguaçu'
 url = 'https://google.com/search?&q=weather {}'.format(search)
 
-# url = 'https://google.com/search?&q=weather Foz do Iguaçu'
+# url = 'https://google.com/search?&q=weather-Foz-do-Iguaçu'
 ````
 The ``search`` variable represents the query parameter that we want for getting a specific city weather.
 
