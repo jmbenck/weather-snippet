@@ -6,7 +6,7 @@ def getWeather():
     print('Type a City name:')
     city_input = str(input())
 
-    url = f'https://google.com/search?&q=Weather {city_input}'
+    url = f'https://google.com/search?q=weather {city_input}'
     r = requests.get(url)
     s = BeautifulSoup(r.text, 'html.parser')
 

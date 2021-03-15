@@ -1,13 +1,17 @@
 # Weather extraction snippet
 [![Build Status](https://travis-ci.com/jmbenck/weather-snippet.svg?branch=master)](https://travis-ci.com/jmbenck/weather-snippet)
 
-This is an example of how we can use Python and [Web Scraping](https://bit.ly/3qOY5Pa) to get specific information making a search from a webpage.
+This is an example of how we can use Python and [Web Scraping](https://bit.ly/3qOY5Pa) to get specific information by making a search on a webpage.
 
-We will make a search on Google for the weather of a given City and use [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) to extract that data.
+We will make a search on Google for the weather of a given city and use [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) to extract that data.
 
 We know there are better ways for getting weather information (like API's). But I think this is a nice snippet for demonstration purposes.
+
+## Tests
+For learning purposes, this repo is using [Travis CI](https://www.travis-ci.com/). The file [``test_.py``](https://github.com/jmbenck/weather-snippet/blob/master/test_.py) uses the 20 biggest cities to test the program and, with Regex, check if the response is as expected.
+
 ## Dependencies
-We'll use Requests and BeautifulSoup modules.
+Install Requests and BeautifulSoup modules.
 ````Python3
 pip install requests
 pip install beautifulsoup4
@@ -27,15 +31,17 @@ from bs4 import BeautifulSoup
 ````
 
 ### Building the url search
-We can make a Google search using the HTTP ``GET`` method passing the query parameter in the url.
+We can make a Google search using the HTTP ``GET`` method by passing a ``search`` parameter and ``q`` value for the query in the ``url``.
 
 ````Python3
-search = 'Foz-do-Iguaçu'
-url = 'https://google.com/search?&q=weather {}'.format(search)
+city = 'Foz-do-Iguaçu'
+url = 'https://google.com/search?&q=weather {}'.format(city)
 
 # url = 'https://google.com/search?&q=weather-Foz-do-Iguaçu'
 ````
-The ``search`` variable represents the query parameter that we want for getting a specific city weather.
+
+The ``city`` variable represents the value that we will append to the url parameter.
+
 
 ### Making request
 ````Python3
@@ -43,14 +49,14 @@ r = requests.get(url)
 ````
 The ``request.get`` method will make a ``GET`` request to the given URL and store the response in the ``r`` variable.
 
-So, the ``response`` will be the raw ``HTML`` content resulting from the url search.
+So, the ``r`` value will be the raw ``HTML`` content resulting from the url search.
 
 
 ### Reading in BeautifulSoup
 ````Python3
 s = BeautifulSoup(r.text, 'html.parser')
 ````
-We create an BeautifulSoup object with the ``r`` variable. 
+We create a BeautifulSoup object with the ``r`` variable. 
 
 The ``html.parse`` will structure the response as ``HTML`` document. Then, we can navigate thought the elements using [DOM (Document Object Model)](https://www.w3schools.com/whatis/whatis_htmldom.asp).
 
@@ -58,7 +64,7 @@ The ``html.parse`` will structure the response as ``HTML`` document. Then, we ca
 ### Getting Data
 Now in the variable ``s`` we have structured html page that we can search in using DOM.
 
-Let's take a look at the ``HTML`` result from this url ``https://google.com/search?&q=weather-Foz-do-Iguaçu ``
+Let's take a look at the ``HTML`` resulting from this url ``https://google.com/search?&q=weather-Foz-do-Iguaçu ``
 
 ````html
 ...
