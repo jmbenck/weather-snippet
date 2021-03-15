@@ -8,7 +8,7 @@ import re
 # 2 Weather conditions has pattern '00:00'
 
 # Input of 20 biggest cities
-@pytest.mark.parametrize('city', ['Buenos Aires ', 'Calcutá', 'Los Angeles ', 'Bangkok ', 'Moscou ', 'Cairo ', 'Osaka-Kobe-Kyoto ', 'Dkaka ', 'Pequim ', 'Guangzhou-Foshan ', 'Cidade do México ', 'São Paulo ', 'Nova York ', 'Xangai ', 'Mumbai ', 'Seul ', 'Manila ', 'Deli ', 'Jacarta ', 'Tóquio '])
+@pytest.mark.parametrize('city', ['Buenos Aires ', 'Calcutá', 'Los Angeles ', 'Bangkok ', 'Moscou ', 'Cairo ', 'Osaka-Kobe-Kyoto ', 'Dkaka ', 'Pequim ', 'Guangzhou-Foshan ', 'Cidade do México ', 'São Paulo ', 'Nova York ', 'Xangai ', 'Mumbai ', 'Seul ', 'Manila ', 'Delhi ', 'Jacarta ', 'Tóquio '])
 def test_function_1(city):
     # Override the Python built-in input method
     main.input = lambda: city
