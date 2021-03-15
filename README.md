@@ -1,4 +1,6 @@
 # Weather extraction snippet
+[![Build Status](https://travis-ci.com/jmbenck/weather-snippet.svg?branch=master)](https://travis-ci.com/jmbenck/weather-snippet)
+
 This is an example of how we can use Python and [Web Scraping](https://bit.ly/3qOY5Pa) to get specific information making a search from in a webpage.
 
 We will make a search on Google for the weather of a given City and use [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) to extract that data.
