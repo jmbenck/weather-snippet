@@ -22,6 +22,14 @@ or you could just install all dependencies from ``requirements.txt``.
 pip install -r requirements.txt
 ````
 
+## Run the code
+The ``main.py`` is a demonstration code where you give input with a City name to get the results.
+
+````Python3 
+pip install -r requirements.txt
+python main.py
+````
+
 ## Code Step-by-Step
 ### Import the modules
 
@@ -113,14 +121,6 @@ print(weather)
 ````
 The ``find`` method from beautiful soup will search for the first element ``div`` element with the class name ``BNeawe tAd8D AP7Wnd``.
 >Note that we also get the local time and day of week of the city in this div, witch is pretty nice tho.
-
-## Run the sample code
-The ``main.py`` is a demonstration code where you give input with a City name to get the results.
-
-````Python3 
-pip install -r requirements.txt
-python main.py
-````
 
 ## Contribute
 That's all. Feel free for collaborating with this repo. Thank you.
